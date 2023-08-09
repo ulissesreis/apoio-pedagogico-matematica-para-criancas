@@ -1,0 +1,25 @@
+<div class="card text-center">
+    <div class="card-header">
+        <button class="btn btn-outline-dark" id="next-button" (click)="generateOperation()">
+            Gerar nova operação
+        </button>
+    </div>
+    <div class="card-body">
+        <p class="card-text">Observe atentamente antes de responder</p>
+        <h2 class="card-title mb-5 mt-5">
+            {{firstNumber}}
+            {{operator}}
+            {{secondNumber}}
+        </h2>
+
+        <div class="input-group mb-3">
+            <input [(ngModel)]=answer type="text" class="form-control" placeholder="Resultado"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button (click)="checkAnswer()" class="btn btn-secondary" type="button" id="button-addon2">Validar</button>
+        </div>
+    </div>
+    <div class="card-footer text-body-secondary" *ngIf="showMessage" [ngClass]="isCorrectAnswer? 'success':'error'">
+        {{isCorrectAnswer? 'Certa resposta': 'Resposta incorreta'}}<br>
+        {{correctAnswer}}
+    </div>
+</div>
